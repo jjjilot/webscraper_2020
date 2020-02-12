@@ -7,6 +7,8 @@ from datetime import datetime
 # line_of_discrepancy = str(12)
 # website_url = 'www.csmoodle.clevelandhighschool.org'
 
+# user_input = int(input('put a number here'))
+
 def send_text(website_url, line_of_discrepancy):
     client = Client(account_sid, auth_token)
     now = datetime.now()
