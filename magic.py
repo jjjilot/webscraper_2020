@@ -17,16 +17,24 @@ def alaina():
     return (oldtext)
     return (newtext)
 
+def henry(timesince):
+    print("twilio time" , (str(timesince)))
+
 def magic(oldtext, newtext, timesince):
+    print("BRUHHHHHHHHHH")
     alaina()
     if (oldtext == newtext):
-        timesince = timesince + zzz
+        timesince += zzz
+        return(timesince)
+        print("bruh")
+        magic(oldtext, newtext, timesince)
     else:
-        timesince = (timesince + zzz)
-    return(timesince)
-alaina
-print("It's been" + magic(oldtext, newtext, timesince))
+        timesince += zzz
+        return(timesince)
+        henry(timesince)
     
+magic(oldtext, newtext, timesince)
+
 
     
 
