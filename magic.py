@@ -2,6 +2,11 @@
 #from bs4 import beautifulsoup4
 import time
 
+global timesince
+global oldtext
+global newtext
+global zzz
+
 timesince = 0
 zzz = int(input('How many seconds between each check? '))
 if (zzz <= 19):
@@ -9,33 +14,39 @@ if (zzz <= 19):
 oldtext = ""
 newtext = ""
 
-def alaina():
-    
-    oldtext = 'I Am Walker and Also Run'
-    newtext = 'I Am Walker and Never Run'
+def main():
+    def alaina():
+        global newtext
+        global oldtext
+        oldtext = 'I Am Walker and Also Run'
+        newtext = 'I Am Walker and Never Run'
+        print("made it past alaina")
 
-    return (oldtext)
-    return (newtext)
+    def henry(timesince):
+        print("twilio time" , timesince, newtext)
 
-def henry(timesince):
-    print("twilio time" , (str(timesince)))
-
-def magic(oldtext, newtext, timesince):
-    print("BRUHHHHHHHHHH")
+    def magic():
+        global timesince
+        global newtext
+        global oldtext
+        global zzz
+        print("made it to magic")
+        if (oldtext == newtext):
+            timesince += zzz
+            print("theyre the same" , timesince)
+            return(timesince)
+        else:
+            timesince += zzz
+            henry(timesince)
+            timesince = 0
+            oldtext = newtext
+            return(timesince, oldtext)
     alaina()
-    if (oldtext == newtext):
-        timesince += zzz
-        return(timesince)
-        print("bruh")
-        magic(oldtext, newtext, timesince)
-    else:
-        timesince += zzz
-        return(timesince)
-        henry(timesince)
-    
-magic(oldtext, newtext, timesince)
+    magic()
 
-
+while True:
+    main()
+    time.sleep(zzz)
     
 
 
