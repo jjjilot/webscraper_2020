@@ -19,7 +19,14 @@ def send_text(website_url, line_of_discrepancy):
     else:
       am_pm = 'in the afternoon'
     message = 'Discrepancy found at ' + website_url + ' on line ' + str(line_of_discrepancy) + ' at ' + str(dt_string) + ' ' + am_pm + '.'
+<<<<<<< Updated upstream
     # message_to_send = str(input('Message to send: '))
     client.messages.create(body=message,to=my_phone_number,from_=twilio_phone_number)
 
 send_text('www.csmoodle.clevelandhighschool.org', 12)
+=======
+    client.messages.create(body=message,to=my_phone_number,from_=twilio_phone_number)
+
+send_text('www.csmoodle.clevelandhighschool.org', 12)
+
+>>>>>>> Stashed changes
