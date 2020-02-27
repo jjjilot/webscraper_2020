@@ -3,12 +3,6 @@ from output_variables import *
 from datetime import time
 from datetime import datetime
 
-# client.messages.create(body="test text",to=my_phone_number,from_=twilio_phone_number)
-# line_of_discrepancy = str(12)
-# website_url = 'www.csmoodle.clevelandhighschool.org'
-
-# user_input = int(input('put a number here'))
-
 def send_text(website_url, line_of_discrepancy):
     client = Client(account_sid, auth_token)
     now = datetime.now()
