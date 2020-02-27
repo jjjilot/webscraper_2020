@@ -1,5 +1,3 @@
-#import requests
-#from bs4 import beautifulsoup4
 import time
 
 global timesince
@@ -8,45 +6,45 @@ global newtext
 global zzz
 
 timesince = 0
+oldtext = "old"
+newtext = "new"
+
 zzz = int(input('How many seconds between each check? '))
-if (zzz <= 19):
+if (zzz < 20):
     zzz = int(input("I can't go that fast! Try something greater than 19 "))
-oldtext = ""
-newtext = ""
 
 def main():
     def alaina():
         global newtext
         global oldtext
-        oldtext = 'I Am Walker and Also Run'
-        newtext = 'I Am Walker and Never Run'
-        print("made it past alaina")
 
-    def henry(timesince):
-        print("twilio time" , timesince, newtext)
+    def henry():
+        global timesince
+        global zzz
 
     def magic():
         global timesince
         global newtext
         global oldtext
         global zzz
-        print("made it to magic")
         if (oldtext == newtext):
             timesince += zzz
-            print("theyre the same" , timesince)
             return(timesince)
         else:
             timesince += zzz
-            henry(timesince)
-            timesince = 0
             oldtext = newtext
-            return(timesince, oldtext)
+            timesince = 0
+            return(oldtext, timesince)
+
     alaina()
     magic()
+    if (timesince == 0):
+        henry()
 
 while True:
-    main()
     time.sleep(zzz)
+    main()
+    
     
 
 
