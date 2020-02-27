@@ -19,17 +19,19 @@
         </div>
         
         <p>Henry will handle the output, sending the user a message via Twilio if the page has updated.
-        <br><img src="resources\output code.png" alt="Output code"></p>
+        <p><img src="resources\output code.PNG" alt="Output code"></p>
         <br>This code utilizes several tools and techniques to send the user a text when a change is detected.
-        <br>This code is a function that can be called by other functions. The function is passed the URL of the website that was scraped (a string) and the line of the page code the discrepancy was found at.
-        <br>
-
-        
-        <!-- <p><img src="Overview flowchart.png" alt="Overview flowchart"></p> -->
-        
-        <!-- <p><a href="https://docs.python.org/3/library/html.parser.html">HTML parser</a>
-        <br><a href="https://codeburst.io/the-ultimate-guide-to-web-scraping-in-python-3-7151425004c5">Guide to webscraping in Python</a>
-        <br><a href="https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460">Another guide to webscraping in Python</a></p> -->
-
+        <br>This code is a function that can be called by other functions. The function is passed the URL of the website that was scraped (a string) and the line of the page code the discrepancy was found at. These parameters are given by the parent function that checks for updates to the website.
+        <br>This function texts the user using Twilio, a tool that allows me to send texts to specified phone numbers using Python or other languages. This is where the Twilio library is imported:
+        <p><img src="resources\output library inputs.PNG" alt="Output imports"></p>
+        <br>The Twilio text-sending function is called in lines 7 and 16. In line 7, the function passes Twilio the credentials necessary to send the text, credentials which are stored in an alternate file not uploaded to GitHub (output_variables.py, line 2).
+        <br>Twilio's text-sending function is called in line 16, where it is passed the phone numbers involved and the message it is to send. The message can be any text, but for our purpose, it contains the time the discrepancy was found and the line where it was found.
+        <br> 
+        <br>The other primary tool used in this function is the datetime library, included in Python by default, found in lines 8-14.
+        <br>I used this library to calculate and format the current time when the function is called, outputting it in a readable format to the message sent to the user. This formatting is done via the now.strftime function, which is passed characters that encode a certain format to display the time as.
+        <br>In my case, these characters encode to only send the hour and minute.
+        <br>I also used comparators (an if statement) to convert the hour of the time to 12-hour time as opposed to 24-hour, as we live in the United States of America and are not in the military.
+        <br>This comparator statement simply subtracts 12 from the hour of the time if the hour is 13 or greater. This is a simple and efficient way to convert the time to 12-hour time.
+        <br>This function also appends a string to the hour of the time that corresponds to the time - if the hour is less than 13, it appends " in the morning" to the string, and if the hour is 13 or greater, it subtracts 12 and appends " in the afternoon" to the string.
     </body>
 </html>
